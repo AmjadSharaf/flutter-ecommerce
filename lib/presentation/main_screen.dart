@@ -1,3 +1,4 @@
+import 'package:ecomme/features/cart/presentation/page/cart_page.dart';
 import 'package:ecomme/features/favorites/presentation/page/favorites_page.dart';
 import 'package:ecomme/features/prodacts/presentation/page/prodacts_page.dart';
 import 'package:ecomme/features/profile/persrntation/page/profile_page.dart';
@@ -18,6 +19,7 @@ class _MainScreenState extends State<MainScreen> {
     FavoritesPage(),
     SettingPage(),
     ProfilePage(),
+    CartPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,10 @@ class _MainScreenState extends State<MainScreen> {
             label: "Settings",
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: "Card",
+          ),
         ],
       ),
     );

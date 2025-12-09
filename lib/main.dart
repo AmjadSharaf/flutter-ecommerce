@@ -1,9 +1,19 @@
-
+import 'package:ecomme/features/cart/cubit/cart_cubit.dart';
+import 'package:ecomme/features/favorites/cubit/favorites_cubit.dart';
 import 'package:ecomme/presentation/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const App());
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => CartCubit()),
+        BlocProvider(create: (_) => FavoritesCubit()),
+      ],
+      child: const App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
