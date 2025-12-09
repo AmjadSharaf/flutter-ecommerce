@@ -14,4 +14,22 @@ class ProdactModel {
     required this.imagesUrl,
     this.discount,
   });
+
+  ProdactModel CopyWith({
+    int? id,
+    String? name,
+    String? description,
+    double? price,
+    double? discount,
+    String? imagesUrl,
+  }) {
+    return ProdactModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      description: description ?? this.description,
+      price: price ?? this.price,
+      discount: discount ?? this.discount,
+      imagesUrl: imagesUrl ?? this.imagesUrl,
+    );
+  }
 }
