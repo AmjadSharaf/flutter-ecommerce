@@ -1,5 +1,5 @@
 class ProdactModel {
-  final int id;
+  final String id;
   final String name;
   final String description;
   final double price;
@@ -16,7 +16,7 @@ class ProdactModel {
   });
 
   ProdactModel CopyWith({
-    int? id,
+    String? id,
     String? name,
     String? description,
     double? price,

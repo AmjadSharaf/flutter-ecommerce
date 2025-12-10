@@ -1,7 +1,10 @@
 import 'package:ecomme/core/constant/colors.dart';
 import 'package:ecomme/core/domain/model/prodact_model.dart';
+import 'package:ecomme/features/favorites/cubit/favorites_cubit.dart';
+import 'package:ecomme/features/favorites/cubit/favorites_state.dart';
 import 'package:ecomme/features/prodacts/presentation/page/produts_details_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class prdactCard extends StatelessWidget {
   final itemIndex;
@@ -82,7 +85,7 @@ class prdactCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(22),
                         color: Colors.amberAccent,
                       ),
-                      child: Text("price: ${prodact.price} \$"),
+                      child: Text("price: ${prodact.price} \ل.س"),
                     ),
                     SizedBox(height: 10.0),
                     Container(
@@ -94,8 +97,9 @@ class prdactCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(22),
                         color: KprimaryColor,
                       ),
-                      child: Text("Discount: ${prodact.discount} \$"),
+                      child: Text("Discount: ${prodact.discount} \ل.س"),
                     ),
+                    
                   ],
                 ),
               ),
