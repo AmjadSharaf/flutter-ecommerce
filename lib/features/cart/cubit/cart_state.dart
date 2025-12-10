@@ -1,20 +1,42 @@
-
 import 'package:ecomme/core/domain/model/prodact_model.dart';
 import 'package:ecomme/features/cart/model/cart_item.dart';
 
-abstract class CartState {}
-
-class CartInitial extends CartState {}
-
-class CartUpdate extends CartState {
+class CartState {
   final List<CartItem> items;
-  CartUpdate({required this.items});
+  final double total;
 
-  double get total => items.fold(0, (sum, item) => sum + item.totalPrice);
-}
+  final ProdactModel? warningProduct;
+  final int? newQuantity;
 
-class CartDiscount extends CartState {
-  final ProdactModel product;
-  final int newQuantity;
-  CartDiscount({required this.newQuantity, required this.product});
+  const CartState({
+    required this.items,
+    required this.total,
+    this.warningProduct,
+    this.newQuantity,
+  });
+
+  factory CartState.initial() => const CartState(items: [], total: 0);
+
+  CartState copyWith({
+    List<CartItem>? items,
+    double? total,
+    ProdactModel? warningProduct,
+    int? newQuantity,
+  }) {
+    return CartState(
+      items: items ?? this.items,
+      total: total ?? this.total,
+      warningProduct: warningProduct,
+      newQuantity: newQuantity,
+    );
+  }
+
+  CartState clearWarning() {
+    return CartState(
+      items: items,
+      total: total,
+      warningProduct: null,
+      newQuantity: null,
+    );
+  }
 }

@@ -1,25 +1,24 @@
+import 'package:ecomme/features/cart/cubit/cart_cubit.dart';
+import 'package:ecomme/features/cart/model/cart_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../cubit/cart_cubit.dart';
-import '../../model/cart_item.dart';
-
 class CartItemTile extends StatelessWidget {
   final CartItem item;
-  const CartItemTile({super.key, required this.item});
+  const CartItemTile({required this.item});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       child: ListTile(
-        leading: Image.network(item.prodacts.imagesUrl, width: 60),
-        title: Text(item.prodacts.name),
+        leading: Image.network(item.product.imagesUrl, width: 60),
+        title: Text(item.product.name),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('السعر: ${item.totalPrice.toStringAsFixed(0)} ل.س'),
             Text('الكمية: ${item.quantity}'),
+            Text('السعر: ${item.totalPrice.toStringAsFixed(0)} ل.س'),
           ],
         ),
         trailing: Column(
@@ -32,9 +31,9 @@ class CartItemTile extends StatelessWidget {
                   onPressed: () {
                     if (item.quantity > 1) {
                       context.read<CartCubit>().updateQuantity(
-                        item.prodacts.id as String,
-                        item.quantity - 1,
-                      );
+                            item.product.id,
+                            item.quantity - 1,
+                          );
                     }
                   },
                 ),
@@ -42,9 +41,9 @@ class CartItemTile extends StatelessWidget {
                   icon: const Icon(Icons.add),
                   onPressed: () {
                     context.read<CartCubit>().updateQuantity(
-                      item.prodacts.id as String,
-                      item.quantity + 1,
-                    );
+                          item.product.id,
+                          item.quantity + 1,
+                        );
                   },
                 ),
               ],
@@ -52,9 +51,7 @@ class CartItemTile extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.delete, color: Colors.red),
               onPressed: () {
-                context.read<CartCubit>().removeFromCart(
-                  item.prodacts.id as String,
-                );
+                context.read<CartCubit>().removeFromCart(item.product.id);
               },
             ),
           ],

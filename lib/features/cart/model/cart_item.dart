@@ -1,20 +1,23 @@
+
+
 import 'package:ecomme/core/domain/model/prodact_model.dart';
 
 class CartItem {
-  final ProdactModel prodacts;
-  final quantity;
-  CartItem({required this.prodacts, this.quantity = 1});
+  final ProdactModel product;
+  final int quantity;
+
+  CartItem({required this.product, required this.quantity});
 
   double get totalPrice {
-    final discount = quantity > 3 ? 3 : quantity;
-    final normalQty = quantity > 3 ? quantity - 3 : 0;
-    return (discount * prodacts.discount) + (normalQty * prodacts.price);
-  }
+    final discounted = product.discount ?? product.price;
+    final fullPrice = product.price;
 
-  CartItem copyWith({int? quantity, ProdactModel? product}) {
-    return CartItem(
-      prodacts: product ?? this.prodacts,
-      quantity: quantity ?? this.quantity,
-    );
+    if (quantity <= 3) {
+      return quantity * discounted;
+    } else {
+      final discountedTotal = 3 * discounted;
+      final fullPriceTotal = (quantity - 3) * fullPrice;
+      return discountedTotal + fullPriceTotal;
+    }
   }
 }

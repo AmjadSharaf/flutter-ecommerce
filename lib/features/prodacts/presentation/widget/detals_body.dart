@@ -47,10 +47,7 @@ class DetailsBody extends StatelessWidget {
                       children: [
                         IconButton(
                           onPressed: () {
-                            context.read<CartCubit>().addToCart(
-                              prodact,
-                              prodact,
-                            );
+                            context.read<CartCubit>().addToCart(prodact);
                           },
                           icon: Icon(Icons.shopping_cart),
                         ),
