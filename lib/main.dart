@@ -1,6 +1,7 @@
+import 'package:ecomme/features/auth/persentation/page/login_page.dart';
 import 'package:ecomme/features/cart/cubit/cart_cubit.dart';
 import 'package:ecomme/features/favorites/cubit/favorites_cubit.dart';
-import 'package:ecomme/presentation/main_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,7 +30,7 @@ class App extends StatelessWidget {
           bodyLarge: TextStyle(fontSize: 14, color: Colors.white),
         ),
       ),
-      home: MainScreen(),
+      home: LoginScreen(),
       darkTheme: ThemeData(),
     );
   }
