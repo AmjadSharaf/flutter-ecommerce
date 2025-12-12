@@ -1,7 +1,7 @@
-import 'package:ecomme/core/constant/CustomElevatedButton.dart';
+import 'package:ecomme/features/auth/persentation/widget/CustomElevatedButton.dart';
 import 'package:ecomme/core/constant/colors.dart';
-import 'package:ecomme/core/constant/custom_text_fild.dart';
-import 'package:ecomme/core/constant/text_style.dart';
+import 'package:ecomme/features/auth/persentation/widget/custom_text_fild.dart';
+import 'package:ecomme/features/auth/persentation/widget/text_style.dart';
 import 'package:ecomme/features/auth/persentation/page/code_chek.dart';
 import 'package:flutter/material.dart';
 

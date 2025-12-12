@@ -1,4 +1,3 @@
-import 'package:ecomme/core/data/dumy/dumy_data.dart';
 import 'package:ecomme/features/favorites/cubit/favorites_cubit.dart';
 import 'package:ecomme/features/favorites/cubit/favorites_state.dart';
 import 'package:ecomme/features/favorites/presentation/wedget/favorates_item_tile.dart';
